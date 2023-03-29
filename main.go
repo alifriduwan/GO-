@@ -5,11 +5,7 @@ import (
 )
 
 func main() {
-	sum := 0
-
-	for i := 0; i < 20; i++ {
-		sum = sum + i
-	}
-
-	fmt.Println(sum)
+	fmt.Println(1)
+	defer fmt.Println(2) //ทำก็ต่อเมื่อฟังก์ชันทำงานเสร็จแล้ว
+	fmt.Println(3)
 }
