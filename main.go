@@ -1,27 +1,27 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 	"math"
 )
 
-var ErrorInvalidRadius = errors.New("radius must be positive")
+type Circle struct {
+	Radius float64
+}
 
-func Area(r float64) (float64, error) {
-	if r <= 0 {
-		return 0.0, ErrorInvalidRadius
-	}
+func (c Circle) AreaCircle() float64 {
+	return math.Pi * c.Radius * c.Radius
+}
 
-	return math.Pi * r * r, nil
+type Point struct {
+	X int
+	Y int
 }
 
 func main() {
-	result, err := Area(-17)
-	if errors.Is(err, ErrorInvalidRadius) {
-		fmt.Println(err)
-	} else {
-		fmt.Println(result)
-	}
-
+	c := Circle{17}
+	a := c.AreaCircle()
+	fmt.Println(c, a)
+	p := Point{X: 14, Y: 17}
+	fmt.Println(p)
 }
