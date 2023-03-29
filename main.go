@@ -1,20 +1,25 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+	"math"
+)
 
-func Add(n int, m int) int {
-	return n + m
-}
+func Area(r float64) (float64, error) {
+	if r <= 0 {
+		return 0.0, errors.New("radius must be positive")
+	}
 
-func Swap(n, m int) (int, int) { //สามารถประกาศแบบนี้เพื่อให้เห็นว่า n and m is integer
-	return m, n
+	return math.Pi * r * r, nil
 }
 
 func main() {
-	result1 := Add(17, 14)
-	fmt.Println(result1)
-
-	i, j := Swap(1, 2) // 2, 1
-	fmt.Println(i, j)
+	result, err := Area(-17)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(result)
+	}
 
 }
