@@ -2,27 +2,19 @@ package main
 
 import "fmt"
 
+func Add(n int, m int) int {
+	return n + m
+}
+
+func Swap(n, m int) (int, int) { //สามารถประกาศแบบนี้เพื่อให้เห็นว่า n and m is integer
+	return m, n
+}
+
 func main() {
-	//TH -> Thailand
-	//EN -> English
-	var langs map[string]string //map[string]string -> [string]->key , string -> [string]=>value
-	if langs == nil {
-	}
-	fmt.Println(langs)
+	result1 := Add(17, 14)
+	fmt.Println(result1)
 
-	langs2 := map[string]string{
-		"TH": "Thailand",
-		"TK": "Turkeys",
-		"EN": "English",
-	}
+	i, j := Swap(1, 2) // 2, 1
+	fmt.Println(i, j)
 
-	fmt.Println(langs2)
-
-	//การเข้าถึงค่า
-	fmt.Println(langs2["TH"])
-
-	//loop
-	for k, v := range langs2 {
-		fmt.Println(k, ":", v)
-	}
 }
