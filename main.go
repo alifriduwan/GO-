@@ -32,4 +32,16 @@ func main() {
 	fmt.Println(num8) //[1 20 3 4]
 	fmt.Println(num9) //[20 3]
 
+	for i := range num8 { // i will return index of value in num8
+		fmt.Println(i)
+	}
+
+	for i, v := range num8 { // i will return index of value in num8 and v will retunr value in array num8
+		fmt.Println(i, v)
+	}
+
+	for _, v := range num8 { // _,v สนใจแค่ค่า v
+		fmt.Println(v)
+	}
+
 }
