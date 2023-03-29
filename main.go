@@ -2,13 +2,18 @@ package main
 
 import (
 	"fmt"
+	"runtime"
 )
 
 func main() {
-	// n := 17
-	if n := 17; n%2 == 0 { //สารมารถกำหนดค่าเริ่มต้นตรงตำแหน่งเช็คเงื่อนไข
-		fmt.Println("Even number")
-	} else {
-		fmt.Println("Odd number")
+	os := runtime.GOOS
+
+	switch os {
+	case "darwin":
+		fmt.Println("OS X")
+	case "linux":
+		fmt.Println("Linux")
+	default:
+		fmt.Println(os)
 	}
 }
