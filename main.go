@@ -33,4 +33,19 @@ func main() {
 	for _, doc := range docs {
 		fmt.Println(doc.Print())
 	}
+
+	// empty interface{}
+	docs2 := []interface{}{
+		PDF{Content: "Hello PDF"},
+		Excel{Cells: []string{"A", "B"}},
+	}
+
+	fmt.Println(docs2)
+
+	docs3 := []any{
+		PDF{Content: "Hello PDF"},
+		Excel{Cells: []string{"A", "B"}},
+	}
+
+	fmt.Println(docs3)
 }
