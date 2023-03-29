@@ -2,10 +2,16 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
 
 func main() {
-	fmt.Println(1)
-	defer fmt.Println(2) //ทำก็ต่อเมื่อฟังก์ชันทำงานเสร็จแล้ว
-	fmt.Println(3)
+	f, err := os.Open("file.txt")
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer f.Close()
+	//process file
+	//read file
+	//calculate...
 }
