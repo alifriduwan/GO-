@@ -2,26 +2,35 @@ package main
 
 import (
 	"fmt"
-	"math"
+	"strings"
 )
 
-type Circle struct {
-	Radius float64
+type Printer interface {
+	Print() string //method Print() return string
+}
+type PDF struct {
+	Content string
 }
 
-func (c Circle) AreaCircle() float64 {
-	return math.Pi * c.Radius * c.Radius
+func (p PDF) Print() string {
+	return p.Content
 }
 
-type Point struct {
-	X int
-	Y int
+type Excel struct {
+	Cells []string
+}
+
+func (e Excel) Print() string {
+	return strings.Join(e.Cells, ",")
 }
 
 func main() {
-	c := Circle{17}
-	a := c.AreaCircle()
-	fmt.Println(c, a)
-	p := Point{X: 14, Y: 17}
-	fmt.Println(p)
+	docs := []Printer{
+		PDF{Content: "Hello PDF"},
+		Excel{Cells: []string{"A", "B"}},
+	}
+
+	for _, doc := range docs {
+		fmt.Println(doc.Print())
+	}
 }
