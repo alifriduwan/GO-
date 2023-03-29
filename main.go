@@ -1,11 +1,14 @@
 package main
 
 import (
-	"course-go/shape" //import module and package
 	"fmt"
 )
 
 func main() {
-	area := shape.GetCircleArea(10)
-	fmt.Print("Circle Area:", area)
+	// n := 17
+	if n := 17; n%2 == 0 { //สารมารถกำหนดค่าเริ่มต้นตรงตำแหน่งเช็คเงื่อนไข
+		fmt.Println("Even number")
+	} else {
+		fmt.Println("Odd number")
+	}
 }
